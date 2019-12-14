@@ -1,0 +1,54 @@
+<h1>Registration Form</h1>
+<p>Please enter the required details below.</p>
+<div class="play-container">
+  <h2>Personal Information</h2>
+  First Name: <br>
+  <input type="text" [(ngModel)]="firstname"><br>
+  Surname: <br>
+  <input type="text" [(ngModel)]="surname"><br>
+  Gender: <br>
+  <mat-form-field>
+    <mat-label>Select</mat-label>
+    <select matNativeControl required>
+      <option value="male">Male</option>
+      <option value="female">Female</option>
+    </select>
+  </mat-form-field><br>
+  Address: <br>
+  <input type="text" [(ngModel)]="address"><br>
+  <mat-form-field>
+    <mat-label>Select your car (required)</mat-label>
+    <select matNativeControl required [formControl]="selectFormControl">
+      <option label="--select something --"></option>
+      <option value="saab">Saab</option>
+      <option value="mercedes">Mercedes</option>
+      <option value="audi">Audi</option>
+    </select>
+    <mat-error *ngIf="selectFormControl.hasError('required')">
+      This field is required
+    </mat-error>
+    <mat-hint>You can pick up your favorite car here</mat-hint>
+  </mat-form-field>
+</div>
+<div class="play-container">
+  <h2>Contact Details</h2>
+  Email Address: <br>
+  <input type="text" [(ngModel)]="email"><br>
+  Telephone Number: <br>
+  <input type="text" [(ngModel)]="phonenum"><br>
+</div>
+<div class="play-container">
+  How do you know about us? <br>
+  <mat-form-field>
+    <mat-label>Select</mat-label>
+    <select matNativeControl required>
+      <option value="friends">Friends</option>
+      <option value="website">This Website</option>
+      <option value="socmed">Social Media</option>
+      <option value="other">Other</option>
+    </select>
+  </mat-form-field>
+</div>
+<div class="play-container">
+  <mat-checkbox>By checking this, I agree with the <a href="https://www.termsfeed.com/blog/sample-privacy-policy-template/">Privacy Policy </a> of CompanyName</mat-checkbox>
+</div>
